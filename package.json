@@ -1,7 +1,7 @@
 {
   "name": "@jimkang/torn-edges",
   "version": "1.0.0",
-"description": "Single-purpose module for ensuring that DOM elements have only one event listener per element.",
+  "description": "Given a parent element, it draws within that element torn paper edges (in SVG) around a div (in HTML) that you can write into like a normal html element.",
   "main": "index.js",
   "scripts": {
     "test": "make test"
@@ -19,5 +19,10 @@
     "url": "https://github.com/jimkang/torn-edges/issues"
   },
   "homepage": "https://github.com/jimkang/torn-edges",
-  "dependencies": {}
+  "dependencies": {
+    "d3-array": "^2.4.0",
+    "d3-selection": "^1.4.1",
+    "d3-shape": "^1.3.7",
+    "probable": "^2.1.4"
+  }
 }
