@@ -1,6 +1,6 @@
 {
   "name": "@jimkang/torn-edges",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Given a parent element, it draws within that element torn paper edges (in SVG) around a div (in HTML) that you can write into like a normal html element.",
   "main": "index.js",
   "scripts": {
