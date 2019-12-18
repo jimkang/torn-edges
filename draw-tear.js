@@ -5,9 +5,7 @@ var range = require('d3-array').range;
 var area = shape.area();
 area.curve(shape.curveLinear);
 
-const tearFreq = 4;
-
-function drawTear({ direction, length, maxThickness }) {
+function drawTear({ direction, length, maxThickness, tearFreq = 4 }) {
   if (direction[1] === 0) {
     area.x0(direction[0] < 0 ? maxThickness : 0);
     area.y(identity);
