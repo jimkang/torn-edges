@@ -3,9 +3,11 @@ torn-edges
 
 Given a parent element, it draws within that element torn paper edges (in SVG) around a div (in HTML) that you can write into like a normal html element.
 
-[Here it is in use.](https://jimkang.com/council)
+![Torn edges example screenshot](meta/torn-edges-example.png)
 
-Currently makes a lot of assumptions about the contents of the div. Probably only only going to work for me right now.
+[Here it is in use.](https://jimkang.com/moif)
+
+Currently makes a lot of assumptions about being able to correctly figure out the size of the contents inside the edges. Definitely will not work in a lot of situations.
 
 Installation
 ------------
@@ -15,11 +17,38 @@ Currently only available on [GitHub Packages](https://help.github.com/en/github/
 Usage
 -----
 
-    var TornEdge = require('torn-edges');
+    var TornEdges = require('@jimkang/torn-edges');
 
-    var drawTornEdges = TornEdges(document.getElementById('container'));
+    renderTornEdges = TornEdges({
+      // This is the DOM element that will contain the element surrounded by torn edges.
+      parentEl: document.getElementById('container'),
+      // The element surrounded by the torn edges will have this class so that you can select it or style it.
+      contentClassName: 'paper'
+    });
+
     // Update contents of .paper within container, then:
-    drawTornEdges();
+    renderTornEdges();
+
+You need to update the contents of your content element before calling `renderTornEdges` because `renderTornEdges` needs to know the content size before proceeding.
+
+It ends up creating a DOM hierarchy like this in '.container':
+
+    <div class="container">
+      <svg class="paper-board" width="739" height="772">
+        <foreignObject width="729" height="762" x="5" y="5">
+          <div class="paper-container">
+            <div class="paper">
+              <img class="picture" src="media/cultists.jpg" alt="A picture of three guys">
+              <p>Your content goes here!</p>
+            </div>
+          </div>
+        </foreignObject>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 0)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 767)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 0)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(734, 0)"></path>
+      </svg>
+    </div>
 
 License
 -------
