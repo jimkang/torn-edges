@@ -23,7 +23,8 @@ Usage
       // This is the DOM element that will contain the element surrounded by torn edges.
       parentEl: document.getElementById('container'),
       // The element surrounded by the torn edges will have this class so that you can select it or style it.
-      contentClassName: 'paper'
+      contentClassName: 'paper',
+      pathFill: 'hsl(39.4, 47.1%, 73.3%)'
     });
 
     // Update contents of .paper within container, then:
@@ -43,10 +44,10 @@ It ends up creating a DOM hierarchy like this in '.container':
             </div>
           </div>
         </foreignObject>
-        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 0)"></path>
-        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 767)"></path>
-        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 0)"></path>
-        <path class="tear-path" d="[Really long list of path commands]" transform="translate(734, 0)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 0)" fill="hsl(39.4, 47.1%, 73.3%)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 767)" fill="hsl(39.4, 47.1%, 73.3%)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(0, 0)" fill="hsl(39.4, 47.1%, 73.3%)"></path>
+        <path class="tear-path" d="[Really long list of path commands]" transform="translate(734, 0)" fill="hsl(39.4, 47.1%, 73.3%)"></path>
       </svg>
     </div>
 

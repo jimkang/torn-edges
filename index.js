@@ -1,7 +1,7 @@
 var d3 = require('d3-selection');
 var drawTear = require('./draw-tear');
 
-function TornEdges({ parentEl, tearWidth = 5, contentClassName }) {
+function TornEdges({ parentEl, tearWidth = 5, contentClassName, pathFill = 'brown' }) {
   var parentSel = d3.select(parentEl);
   parentSel
     .append('svg')
@@ -54,6 +54,7 @@ function TornEdges({ parentEl, tearWidth = 5, contentClassName }) {
       .enter()
       .append('path')
       .classed('tear-path', true)
+      .attr('fill', pathFill)
       .merge(paths);
 
     updatePaths
